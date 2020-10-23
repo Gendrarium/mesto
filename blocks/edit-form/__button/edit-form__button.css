@@ -1,0 +1,18 @@
+.edit-form__button {
+  padding: 0;
+  width: 358px;
+  height: 50.15px;
+  margin: 48px auto 0;
+  background-color: #000;
+  font-family: 'Inter';
+  border-color: black;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.edit-form__button:focus{
+outline: none;
+}
