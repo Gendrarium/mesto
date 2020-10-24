@@ -2,10 +2,11 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
   position: absolute;
-  top: -32px;
-  right: -36px;
+  top: -45px;
+  right: -45px;
   opacity: 1;
   cursor: pointer;
+  transform: rotate(-45deg);
 }
 
 .edit-form__close-button:focus {
@@ -18,7 +19,7 @@ transition: opacity .3s linear;
 }
 @media screen and (max-width: 599px) {
   .edit-form__close-button {
-    top: -30px;
+    top: -35px;
     right: -10px;
   }
 }
