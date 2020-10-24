@@ -5,23 +5,19 @@
   align-items: center;
 }
 @media screen and (max-width: 1279px) {
-  . {
-
+  .profile {
+    max-width: 70vw;
   }
  }
-@media screen and (max-width: 1023px) {
-  . {
 
-  }
- }
 @media screen and (max-width: 767px) {
-  . {
-
+  .profile {
+    max-width: 70vw;
+    flex-direction: column;
   }
  }
 @media screen and (max-width: 599px) {
   .profile {
-    max-width: 100%;
-    flex-direction: column;
+    max-width: 282px;
   }
  }

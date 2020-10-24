@@ -2,24 +2,11 @@
   width: 10px;
   height: 10px;
 }
-@media screen and (max-width: 1279px) {
-  . {
 
-  }
- }
-@media screen and (max-width: 1023px) {
-  . {
-
-  }
- }
 @media screen and (max-width: 767px) {
-  . {
-
-  }
- }
-@media screen and (max-width: 599px) {
   .profile__edit-image {
     width: 7.5px;
     height: 7.5px;
   }
-}
+ }
+

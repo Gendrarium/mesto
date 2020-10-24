@@ -25,21 +25,6 @@ opacity: .8;
 transition: opacity .4s linear;
 }
 
-@media screen and (max-width: 1279px) {
-  . {
-
-  }
- }
-@media screen and (max-width: 1023px) {
-  . {
-
-  }
- }
-@media screen and (max-width: 767px) {
-  . {
-
-  }
- }
 @media screen and (max-width: 599px) {
   .edit-form__button {
     width: 238px;

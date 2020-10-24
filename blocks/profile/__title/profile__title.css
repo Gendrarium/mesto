@@ -8,28 +8,24 @@
   white-space: nowrap;
   overflow: hidden;
 }
-@media screen and (max-width: 1279px) {
-  . {
 
-  }
- }
 @media screen and (max-width: 1023px) {
-  . {
-
+  .profile__title {
+    max-width: 45vw;
   }
  }
 @media screen and (max-width: 767px) {
-  . {
-
+  .profile__title {
+    margin-bottom: 0;
+    margin-left: 4px;
+    max-width: 60vw;
+    font-size: 27px;
+    line-height: 56px;
+    text-align: center;
   }
  }
 @media screen and (max-width: 599px) {
   .profile__title {
-    margin-bottom: 0;
-    margin-left: 4px;
-    max-width: 250px;
-    font-size: 27px;
-    line-height: 56px;
-    text-align: center;
+  max-width: 250px;
   }
 }
