@@ -12,7 +12,15 @@
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
+  opacity: 1;
+  cursor: pointer;
 }
+
 .edit-form__button:focus{
 outline: none;
+}
+
+.edit-form__button:hover {
+opacity: .8;
+transition: opacity .4s linear;
 }
