@@ -7,3 +7,24 @@
   min-width: 430px;
   min-height: 330px;
 }
+@media screen and (max-width: 1279px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 1023px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 767px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 599px) {
+  .edit-form__container {
+    min-width: 282px;
+    min-height: 322px;
+  }
+ }

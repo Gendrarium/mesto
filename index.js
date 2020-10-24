@@ -1,4 +1,4 @@
-let editButton = document.querySelector('.profile__edit-button');
+﻿let editButton = document.querySelector('.profile__edit-button');
 
 function editButtonHandler() {
   let editForm = document.querySelector('.edit-form');
@@ -32,7 +32,4 @@ function formSubmitHandler (evt) {
     jobProfile.textContent = jobInput.value;
     closeButtonHandler();
 }
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('submit', formSubmitHandler);

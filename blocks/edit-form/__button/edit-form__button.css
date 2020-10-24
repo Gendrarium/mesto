@@ -1,7 +1,7 @@
 .edit-form__button {
   padding: 0;
   width: 358px;
-  height: 50.15px;
+  height: 50px;
   margin: 48px auto 0;
   background-color: #000;
   font-family: 'Inter';
@@ -24,3 +24,25 @@ outline: none;
 opacity: .8;
 transition: opacity .4s linear;
 }
+
+@media screen and (max-width: 1279px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 1023px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 767px) {
+  . {
+
+  }
+ }
+@media screen and (max-width: 599px) {
+  .edit-form__button {
+    width: 238px;
+    height: 46px;
+  }
+ }
