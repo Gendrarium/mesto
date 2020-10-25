@@ -6,7 +6,9 @@
   right: -45px;
   opacity: 1;
   cursor: pointer;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .edit-form__close-button:focus {
@@ -15,6 +17,8 @@ outline: none;
 
 .edit-form__close-button:hover {
 opacity: .6;
+-webkit-transition: opacity .3s linear;
+-o-transition: opacity .3s linear;
 transition: opacity .3s linear;
 }
 @media screen and (max-width: 599px) {

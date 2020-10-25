@@ -1,7 +1,8 @@
 .grid-cards__title {
   margin: 25px 0 0 21px;
   max-width: 190px;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }

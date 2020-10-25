@@ -3,7 +3,8 @@
   font-size: 18px;
   line-height: 22px;
   max-width: 500px;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -25,3 +26,4 @@
     max-width: 282px;
   }
 }
+
