@@ -1,5 +1,10 @@
 .edit-form__close-button {
+  width: 40px;
+  height: 40px;
   background-color: rgba(0, 0, 0, 0);
+  background-image: url(../../../images/profile-plus-and-edit-form-x.svg);
+  background-position: center;
+  background-size: cover;
   border: none;
   position: absolute;
   top: -45px;
@@ -25,5 +30,7 @@ transition: opacity .3s linear;
   .edit-form__close-button {
     top: -35px;
     right: -10px;
+    width: 26px;
+    height: 26px;
   }
 }

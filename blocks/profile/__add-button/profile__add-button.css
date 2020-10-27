@@ -1,5 +1,5 @@
 .profile__add-button {
-  background-color: #000;
+  background: url(../../../images/profile-plus-and-edit-form-x.svg) center / 22px 22px no-repeat black;
   width: 150px;
   height: 50px;
   border: 2px solid #FFFFFF;
@@ -37,6 +37,7 @@ transition: opacity .3s linear;
 @media screen and (max-width: 767px) {
   .profile__add-button {
     width: 70vw;
+    background-size: 16px 16px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;

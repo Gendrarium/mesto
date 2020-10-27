@@ -7,19 +7,6 @@
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
-  <div class="edit-form">
-    <div class="edit-form__container">
-      <button class="edit-form__close-button">
-        <img class="edit-form__close-button-img" src="./images/profile-plus-and-edit-form-x.svg" alt="Выход">
-      </button>
-      <h2 class="edit-form__title">Редактировать профиль</h2>
-      <form class="edit-form__form">
-        <input class="edit-form__input edit-form__input_content_name" type="text">
-        <input class="edit-form__input edit-form__input_content_job" type="text">
-        <button class="edit-form__button">Сохранить</button>
-      </form>
-    </div>
-  </div>
   <div class="page">
     <header class="header page__header">
       <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место">
@@ -31,16 +18,12 @@
           <div class="profile__name-and-description">
             <div class="profile__name-container">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button">
-                <img class="profile__edit-image" src="./images/profile-edit-button.svg" alt="Редактировать">
-              </button>
+              <button class="profile__edit-button" type="button"></button>
             </div>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-button">
-         <img class="profile__inside-plus" src="./images/profile-plus-and-edit-form-x.svg" alt="">
-        </button>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section class="grid-cards main__grid-cards">
         <ul class="grid-cards__list">
@@ -48,42 +31,42 @@
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-karachaevsk.jpg" alt="Карачаевск">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Карачаевск</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
           <li class="grid-cards__item">
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-Elbrus.jpg" alt="Эльбрус">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Гора Эльбрус</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
           <li class="grid-cards__item">
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-dombay.jpg" alt="Домбай">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Домбай</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
           <li class="grid-cards__item">
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-Elbrus.jpg" alt="Эльбрус">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Гора Эльбрус</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
           <li class="grid-cards__item">
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-dombay.jpg" alt="Домбай">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Домбай</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
           <li class="grid-cards__item">
             <img class="grid-cards__image" src="./images/grid-cards-kirill-pershin-karachaevsk.jpg" alt="Карачаево-Черкесия">
             <div class="grid-cards__bottom-container">
               <h2 class="grid-cards__title">Карачаево-Черкесия</h2>
-              <img class="grid-cards__like-img" src="./images/grid-cards-like.svg" alt="Кнопка лайк">
+              <button class="grid-cards__like" type="button"></button>
             </div>
           </li>
         </ul>
@@ -92,6 +75,17 @@
     <footer class="footer page__footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+  </div>
+  <div class="edit-form">
+    <div class="edit-form__container">
+      <button class="edit-form__close-button" type="button"></button>
+      <h2 class="edit-form__title">Редактировать профиль</h2>
+      <form class="edit-form__form" target="_self" name="popup-form" method="get">
+        <input class="edit-form__input edit-form__input_content_name" name="user-name" type="text">
+        <input class="edit-form__input edit-form__input_content_job" name="user-job" type="text">
+        <button class="edit-form__button" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
 <script src="./index.js"></script>
 </body>

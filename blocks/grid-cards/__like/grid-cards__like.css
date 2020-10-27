@@ -1,0 +1,20 @@
+.grid-cards__like {
+  background: url(../../../images/grid-cards-like.svg) center / cover no-repeat rgba(0, 0, 0, 0);
+  border: none;
+  width: 21px;
+  height: 19px;
+  margin: 32px 30px 0 0;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.grid-cards__like:focus{
+outline: none;
+}
+
+.grid-cards__like:hover {
+opacity: .8;
+-webkit-transition: opacity .4s linear;
+-o-transition: opacity .4s linear;
+transition: opacity .4s linear;
+}
