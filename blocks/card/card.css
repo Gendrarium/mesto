@@ -5,4 +5,5 @@
   max-width: 282px;
   box-sizing: border-box;
   padding-bottom: 25px;
+  position: relative;
 }

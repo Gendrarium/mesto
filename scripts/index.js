@@ -51,7 +51,10 @@ initialCards.forEach(function(item) {
   likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('card__like_fill');
   });
-
+  const delButton = cardCopy.querySelector('.card__del');
+  delButton.addEventListener('click', () => {
+    delButton.closest('.card').remove();
+  });
   gridCardsSection.append(cardCopy);
 });
 
@@ -93,7 +96,10 @@ function formSubmitAddHandler (evt) {
   likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('card__like_fill');
   });
-
+  const delButton = cardCopy.querySelector('.card__del');
+  delButton.addEventListener('click', () => {
+    delButton.closest('.card').remove();
+  });
   gridCardsSection.prepend(cardCopy);
 
   closeButtonAddHandler();
