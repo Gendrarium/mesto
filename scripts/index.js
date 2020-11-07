@@ -47,6 +47,11 @@ initialCards.forEach(function(item) {
   cardCopy.querySelector('.card__image').alt = item.name;
   cardCopy.querySelector('.card__title').textContent = item.name;
 
+  const likeButton = cardCopy.querySelector('.card__like');
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.toggle('card__like_fill');
+  });
+
   gridCardsSection.append(cardCopy);
 });
 
@@ -79,16 +84,22 @@ function formSubmitHandler (evt) {
 function formSubmitAddHandler (evt) {
   evt.preventDefault();
 
-  const cardCopi = document.querySelector('.template-cards').content.cloneNode(true);
-  cardCopi.querySelector('.card__image').src = linkInputAdd.value;
-  cardCopi.querySelector('.card__image').alt = nameInputAdd.value;
-  cardCopi.querySelector('.card__title').textContent = nameInputAdd.value;
+  const cardCopy = document.querySelector('.template-cards').content.cloneNode(true);
+  cardCopy.querySelector('.card__image').src = linkInputAdd.value;
+  cardCopy.querySelector('.card__image').alt = nameInputAdd.value;
+  cardCopy.querySelector('.card__title').textContent = nameInputAdd.value;
 
-  gridCardsSection.prepend(cardCopi);
+  const likeButton = cardCopy.querySelector('.card__like');
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.toggle('card__like_fill');
+  });
+
+  gridCardsSection.prepend(cardCopy);
 
   closeButtonAddHandler();
+  linkInputAdd.value = '';
+  nameInputAdd.value = '';
 }
-
 editButton.addEventListener('click', editButtonHandler);
 closeButton.addEventListener('click', closeButtonHandler);
 formElement.addEventListener('submit', formSubmitHandler);
