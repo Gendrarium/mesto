@@ -26,54 +26,12 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <section class="grid-cards main__grid-cards">
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-karachaevsk.jpg" alt="Карачаевск">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Карачаевск</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-Elbrus.jpg" alt="Эльбрус">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-dombay.jpg" alt="Домбай">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Домбай</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-Elbrus.jpg" alt="Эльбрус">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-dombay.jpg" alt="Домбай">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Домбай</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/grid-cards-kirill-pershin-karachaevsk.jpg" alt="Карачаево-Черкесия">
-            <div class="card__bottom-container">
-              <h2 class="card__title">Карачаево-Черкесия</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </article>
       </section>
     </main>
     <footer class="footer page__footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="edit-form page__edit-form">
+    <div class="edit-form page__edit-form edit-form_button_redact">
       <div class="edit-form__container">
         <button class="edit-form__close-button" type="button"></button>
         <h2 class="edit-form__title">Редактировать профиль</h2>
@@ -83,8 +41,27 @@
           <button class="edit-form__button" type="submit">Сохранить</button>
         </form>
       </div>
+     </div>
+  <div class="edit-form page__edit-form edit-form_button_add">
+    <div class="edit-form__container">
+      <button class="edit-form__close-button" type="button"></button>
+      <h2 class="edit-form__title">Новое место</h2>
+      <form class="edit-form__form" target="_self" name="popup-form" method="get">
+        <input class="edit-form__input edit-form__input_content_name" name="user-name" type="text" placeholder="Название">
+        <input class="edit-form__input edit-form__input_content_link" name="user-link" type="text" placeholder="Ссылка на картинку">
+        <button class="edit-form__button" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
-  </div>
+  <template class="template-cards">
+    <article class="card">
+      <img class="card__image" src="#" alt="#">
+      <div class="card__bottom-container">
+        <h2 class="card__title"></h2>
+        <button class="card__like" type="button"></button>
+      </div>
+    </article>
+  </template>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
