@@ -46,27 +46,27 @@ const initialCards = [
 
 function copyTemplate(name, link) {
   const cardCopy = document.querySelector('.template-cards').content.cloneNode(true);
-
   const cardImage = cardCopy.querySelector('.card__image');
+
   cardImage.src = link;
   cardImage.alt = name;
   cardCopy.querySelector('.card__title').textContent = name;
-
   cardImage.addEventListener('click',()=>{
-  popupImage.src = cardImage.src;
-  popupCaption.textContent = cardImage.alt;
+    popupImage.src = cardImage.src;
+    popupCaption.textContent = cardImage.alt;
+    openPopup(editFormImg);
+  })
 
-  openPopup(editFormImg);
-})
+  const likeButton = cardCopy.querySelector('.card__like');
+  likeButton.addEventListener('click', () => {
+   likeButton.classList.toggle('card__like_fill');
+  });
 
-const likeButton = cardCopy.querySelector('.card__like');
-likeButton.addEventListener('click', () => {
-  likeButton.classList.toggle('card__like_fill');
-});
-const delButton = cardCopy.querySelector('.card__del');
-delButton.addEventListener('click', () => {
-  delButton.closest('.card').remove();
-});
+  const delButton = cardCopy.querySelector('.card__del');
+  delButton.addEventListener('click', () => {
+    delButton.closest('.card').remove();
+  });
+
   return cardCopy;
 }
 
@@ -81,11 +81,13 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('edit-form_display-flex');
 }
+
 function formSubmitHandler (evt) {
   evt.preventDefault();
 
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
+
   closePopup(editFormRedact);
 }
 
@@ -93,10 +95,10 @@ function formSubmitAddHandler (evt) {
   evt.preventDefault();
 
   gridCardsSection.prepend(copyTemplate(nameInputAdd.value, linkInputAdd.value));
-
   closePopup(editFormAdd);
   formElementAdd.reset();
 }
+
 editButton.addEventListener('click', ()=>{
   openPopup(editFormRedact);
   nameInput.value = nameProfile.textContent;
