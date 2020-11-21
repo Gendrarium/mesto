@@ -76,6 +76,16 @@ initialCards.forEach(function(item) {
 
 function openPopup(popup) {
   popup.classList.add('edit-form_display-flex');
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === "Escape") {
+      closePopup(popup);
+  }
+  });
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains(popup.classList.item(0))) {
+      closePopup(popup);
+    }
+  });
 }
 
 function closePopup(popup) {
@@ -103,6 +113,7 @@ editButton.addEventListener('click', ()=>{
   openPopup(editFormRedact);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
+  resetValidationState(formElement, validityConfig);
 });
 closeButton.addEventListener('click', ()=>{
   closePopup(editFormRedact);

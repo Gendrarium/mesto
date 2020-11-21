@@ -10,12 +10,12 @@
   background-color: #ffffff;
   border-radius: 10px;
   min-width: 430px;
-  padding-bottom: 50px;
+  padding-bottom: 33px;
 }
 
 @media screen and (max-width: 599px) {
   .edit-form__container {
     min-width: 282px;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
   }
  }

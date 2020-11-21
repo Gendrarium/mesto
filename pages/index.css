@@ -25,7 +25,10 @@
 @import url(../blocks/edit-form/__title/edit-form__title.css);
 @import url(../blocks/edit-form/__form/edit-form__form.css);
 @import url(../blocks/edit-form/__input/edit-form__input.css);
+@import url(../blocks/edit-form/__input/_type/edit-form__input_type_error.css);
+@import url(../blocks/edit-form/__error/edit-form__error.css);
 @import url(../blocks/edit-form/__button/edit-form__button.css);
+@import url(../blocks/edit-form/__button/_disabled/edit-form__button_disabled.css);
 @import url(../blocks/edit-form/__figure/edit-form__figure.css);
 @import url(../blocks/edit-form/__image/edit-form__image.css);
 @import url(../blocks/edit-form/__caption/edit-form__caption.css);

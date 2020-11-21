@@ -36,8 +36,10 @@
         <button class="edit-form__close-button" type="button"></button>
         <h2 class="edit-form__title">Редактировать профиль</h2>
         <form class="edit-form__form" target="_self" name="popup-form" method="get">
-          <input class="edit-form__input edit-form__input_content_name" name="user-name" type="text">
-          <input class="edit-form__input edit-form__input_content_job" name="user-job" type="text">
+          <input class="edit-form__input edit-form__input_content_name" id="user-name" name="user-name" type="text" minlength="2" maxlength="40" required>
+          <span id="user-name-error" class="edit-form__error"></span>
+          <input class="edit-form__input edit-form__input_content_job" id="user-job" name="user-job" type="text" minlength="2" maxlength="200" required>
+          <span id="user-job-error" class="edit-form__error"></span>
           <button class="edit-form__button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -47,8 +49,10 @@
       <button class="edit-form__close-button" type="button"></button>
       <h2 class="edit-form__title">Новое место</h2>
       <form class="edit-form__form" target="_self" name="popup-form" method="get">
-        <input class="edit-form__input edit-form__input_content_name" name="user-name" type="text" placeholder="Название">
-        <input class="edit-form__input edit-form__input_content_link" name="user-link" type="text" placeholder="Ссылка на картинку">
+        <input class="edit-form__input edit-form__input_content_name" id="user-name" name="user-name" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+        <span id="user-name-error" class="edit-form__error"></span>
+        <input class="edit-form__input edit-form__input_content_link" id="user-link" name="user-link" type="url" placeholder="Ссылка на картинку" required>
+        <span id="user-link-error" class="edit-form__error"></span>
         <button class="edit-form__button" type="submit">Сохранить</button>
       </form>
       </div>
@@ -73,6 +77,7 @@
       </div>
     </article>
   </template>
+  <script src="./scripts/validate.js"></script>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
