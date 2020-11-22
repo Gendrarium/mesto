@@ -33,6 +33,7 @@
 @import url(../blocks/edit-form/__image/edit-form__image.css);
 @import url(../blocks/edit-form/__caption/edit-form__caption.css);
 @import url(../blocks/card/card.css);
+@import url(../blocks/card/__image-container/card__image-container.css);
 @import url(../blocks/card/__image/card__image.css);
 @import url(../blocks/card/__del/card__del.css);
 @import url(../blocks/card/__bottom-container/card__bottom-container.css);

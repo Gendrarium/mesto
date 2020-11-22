@@ -88,7 +88,7 @@ function closePopup(popup) {
   popup.removeEventListener('mousedown', overlayClickClose);
 }
 
-function formSubmitHandler (evt) {
+function submitProfileForm (evt) {
   evt.preventDefault();
 
   nameProfile.textContent = nameInput.value;
@@ -97,7 +97,7 @@ function formSubmitHandler (evt) {
   closePopup(editFormRedact);
 }
 
-function formSubmitAddHandler (evt) {
+function submitAddForm (evt) {
   evt.preventDefault();
 
   gridCardsSection.prepend(copyTemplate(nameInputAdd.value, linkInputAdd.value));
@@ -113,7 +113,7 @@ editButton.addEventListener('click', ()=>{
 closeButton.addEventListener('click', ()=>{
   closePopup(editFormRedact);
 });
-formElementProfile.addEventListener('submit', formSubmitHandler);
+formElementProfile.addEventListener('submit', submitProfileForm);
 addButton.addEventListener('click', ()=>{
   openPopup(editFormAdd);
   formElementAdd.reset();
@@ -122,7 +122,7 @@ addButton.addEventListener('click', ()=>{
 closeButtonAdd.addEventListener('click', ()=>{
   closePopup(editFormAdd);
 });
-formElementAdd.addEventListener('submit', formSubmitAddHandler);
+formElementAdd.addEventListener('submit', submitAddForm);
 closeButtonImg.addEventListener('click', ()=>{
   closePopup(editFormImg);
 });
