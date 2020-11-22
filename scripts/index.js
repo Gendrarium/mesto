@@ -78,14 +78,14 @@ function openPopup(popup) {
   popup.classList.add('edit-form_display-flex');
 
   document.addEventListener('keydown', escClose);
-  popup.addEventListener('click', overlayClickClose);
+  popup.addEventListener('mousedown', overlayClickClose);
 }
 
 function closePopup(popup) {
   popup.classList.remove('edit-form_display-flex');
 
   document.removeEventListener('keydown', escClose);
-  popup.removeEventListener('click', overlayClickClose);
+  popup.removeEventListener('mousedown', overlayClickClose);
 }
 
 function formSubmitHandler (evt) {
