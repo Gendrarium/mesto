@@ -5,7 +5,7 @@ const editFormRedact = document.querySelector('.edit-form_button_redact');
 const closeButton = editFormRedact.querySelector('.edit-form__close-button');
 const nameInput = editFormRedact.querySelector('.edit-form__input_content_name');
 const jobInput = editFormRedact.querySelector('.edit-form__input_content_job');
-const formElement = editFormRedact.querySelector('.edit-form__form');
+const formElementProfile = editFormRedact.querySelector('.edit-form__form');
 const editFormAdd = document.querySelector('.edit-form_button_add');
 const closeButtonAdd = editFormAdd.querySelector('.edit-form__close-button');
 const nameInputAdd = editFormAdd.querySelector('.edit-form__input_content_name');
@@ -17,55 +17,41 @@ const popupCaption = editFormImg.querySelector('.edit-form__caption');
 const closeButtonImg = editFormImg.querySelector('.edit-form__close-button');
 const nameProfile = document.querySelector('.profile__title');
 const jobProfile = document.querySelector('.profile__subtitle');
-const initialCards = [
-  {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+const card = document.querySelector('.template-cards').content;
+
+function likeCard(card) {
+  const likeButton = card.querySelector('.card__like');
+  likeButton.addEventListener('click', () => {
+   likeButton.classList.toggle('card__like_fill');
+  });
+}
+
+function delCard(card) {
+  const delButton = card.querySelector('.card__del');
+  delButton.addEventListener('click', () => {
+    delButton.closest('.card').remove();
+  });
+}
+
+function fullSizeImage(image) {
+  image.addEventListener('click',()=>{
+    popupImage.src = image.src;
+    popupCaption.textContent = image.alt;
+    openPopup(editFormImg);
+  })
+}
 
 function copyTemplate(name, link) {
-  const cardCopy = document.querySelector('.template-cards').content.cloneNode(true);
+  const cardCopy = card.cloneNode(true);
   const cardImage = cardCopy.querySelector('.card__image');
 
   cardImage.src = link;
   cardImage.alt = name;
   cardCopy.querySelector('.card__title').textContent = name;
-  cardImage.addEventListener('click',()=>{
-    popupImage.src = cardImage.src;
-    popupCaption.textContent = cardImage.alt;
-    openPopup(editFormImg);
-  })
 
-  const likeButton = cardCopy.querySelector('.card__like');
-  likeButton.addEventListener('click', () => {
-   likeButton.classList.toggle('card__like_fill');
-  });
-
-  const delButton = cardCopy.querySelector('.card__del');
-  delButton.addEventListener('click', () => {
-    delButton.closest('.card').remove();
-  });
+  fullSizeImage(cardImage);
+  likeCard(cardCopy);
+  delCard(cardCopy);
 
   return cardCopy;
 }
@@ -74,22 +60,32 @@ initialCards.forEach(function(item) {
   gridCardsSection.append(copyTemplate(item.name, item.link));
 });
 
+function escClose(evt) {
+  if (evt.key === "Escape") {
+    const popup = document.querySelector('.edit-form_display-flex');
+    closePopup(popup);
+}
+}
+
+function overlayClickClose(evt) {
+  const popup = document.querySelector('.edit-form_display-flex');
+  if (evt.target.classList.contains(popup.classList.item(0))) {
+    closePopup(popup);
+  }
+}
+
 function openPopup(popup) {
   popup.classList.add('edit-form_display-flex');
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === "Escape") {
-      closePopup(popup);
-  }
-  });
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains(popup.classList.item(0))) {
-      closePopup(popup);
-    }
-  });
+
+  document.addEventListener('keydown', escClose);
+  popup.addEventListener('click', overlayClickClose);
 }
 
 function closePopup(popup) {
   popup.classList.remove('edit-form_display-flex');
+
+  document.removeEventListener('keydown', escClose);
+  popup.removeEventListener('click', overlayClickClose);
 }
 
 function formSubmitHandler (evt) {
@@ -106,21 +102,22 @@ function formSubmitAddHandler (evt) {
 
   gridCardsSection.prepend(copyTemplate(nameInputAdd.value, linkInputAdd.value));
   closePopup(editFormAdd);
-  formElementAdd.reset();
 }
 
 editButton.addEventListener('click', ()=>{
   openPopup(editFormRedact);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
-  resetValidationState(formElement, validityConfig);
+  resetValidationState(formElementProfile, validityConfig);
 });
 closeButton.addEventListener('click', ()=>{
   closePopup(editFormRedact);
 });
-formElement.addEventListener('submit', formSubmitHandler);
+formElementProfile.addEventListener('submit', formSubmitHandler);
 addButton.addEventListener('click', ()=>{
   openPopup(editFormAdd);
+  formElementAdd.reset();
+  resetValidationState(formElementAdd, validityConfig);
 });
 closeButtonAdd.addEventListener('click', ()=>{
   closePopup(editFormAdd);
