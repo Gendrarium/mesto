@@ -1,4 +1,9 @@
-﻿const gridCardsSection = document.querySelector('.grid-cards');
+﻿import {Card} from './Card.js';
+import {validityConfig, FormValidator} from './FormValidator.js';
+import {initialCards} from './const.js';
+import {openPopup, closePopup} from './utils.js';
+
+const gridCardsSection = document.querySelector('.grid-cards');
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const editFormRedact = document.querySelector('.edit-form_button_redact');
@@ -12,81 +17,20 @@ const nameInputAdd = editFormAdd.querySelector('.edit-form__input_content_name')
 const linkInputAdd = editFormAdd.querySelector('.edit-form__input_content_link');
 const formElementAdd = editFormAdd.querySelector('.edit-form__form');
 const editFormImg = document.querySelector('.edit-form_button_img');
-const popupImage = editFormImg.querySelector('.edit-form__image');
-const popupCaption = editFormImg.querySelector('.edit-form__caption');
 const closeButtonImg = editFormImg.querySelector('.edit-form__close-button');
 const nameProfile = document.querySelector('.profile__title');
 const jobProfile = document.querySelector('.profile__subtitle');
-const card = document.querySelector('.template-cards').content;
 
-function likeCard(card) {
-  const likeButton = card.querySelector('.card__like');
-  likeButton.addEventListener('click', () => {
-   likeButton.classList.toggle('card__like_fill');
-  });
-}
 
-function delCard(card) {
-  const delButton = card.querySelector('.card__del');
-  delButton.addEventListener('click', () => {
-    delButton.closest('.card').remove();
-  });
-}
-
-function fullSizeImage(image) {
-  image.addEventListener('click',()=>{
-    popupImage.src = image.src;
-    popupCaption.textContent = image.alt;
-    openPopup(editFormImg);
-  })
-}
-
-function copyTemplate(name, link) {
-  const cardCopy = card.cloneNode(true);
-  const cardImage = cardCopy.querySelector('.card__image');
-
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardCopy.querySelector('.card__title').textContent = name;
-
-  fullSizeImage(cardImage);
-  likeCard(cardCopy);
-  delCard(cardCopy);
-
-  return cardCopy;
-}
-
-initialCards.forEach(function(item) {
-  gridCardsSection.append(copyTemplate(item.name, item.link));
+initialCards.forEach((item) => {
+  const card = new Card(item, '.template-cards');
+  gridCardsSection.append(card.generateCard());
 });
 
-function escClose(evt) {
-  if (evt.key === "Escape") {
-    const popup = document.querySelector('.edit-form_display-flex');
-    closePopup(popup);
-}
-}
-
-function overlayClickClose(evt) {
-  const popup = document.querySelector('.edit-form_display-flex');
-  if (evt.target.classList.contains(popup.classList.item(0))) {
-    closePopup(popup);
-  }
-}
-
-function openPopup(popup) {
-  popup.classList.add('edit-form_display-flex');
-
-  document.addEventListener('keydown', escClose);
-  popup.addEventListener('mousedown', overlayClickClose);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('edit-form_display-flex');
-
-  document.removeEventListener('keydown', escClose);
-  popup.removeEventListener('mousedown', overlayClickClose);
-}
+const formValidProfile = new FormValidator(validityConfig, formElementProfile);
+formValidProfile.enableValidation();
+const formValidElementAdd = new FormValidator(validityConfig, formElementAdd);
+formValidElementAdd.enableValidation();
 
 function submitProfileForm (evt) {
   evt.preventDefault();
@@ -99,8 +43,8 @@ function submitProfileForm (evt) {
 
 function submitAddForm (evt) {
   evt.preventDefault();
-
-  gridCardsSection.prepend(copyTemplate(nameInputAdd.value, linkInputAdd.value));
+  const card =new Card({name: nameInputAdd.value, link: linkInputAdd.value}, '.template-cards')
+  gridCardsSection.prepend(card.generateCard());
   closePopup(editFormAdd);
 }
 
@@ -108,7 +52,7 @@ editButton.addEventListener('click', ()=>{
   openPopup(editFormRedact);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
-  resetValidationState(formElementProfile, validityConfig);
+  formValidProfile.resetValidationState();
 });
 closeButton.addEventListener('click', ()=>{
   closePopup(editFormRedact);
@@ -117,7 +61,7 @@ formElementProfile.addEventListener('submit', submitProfileForm);
 addButton.addEventListener('click', ()=>{
   openPopup(editFormAdd);
   formElementAdd.reset();
-  resetValidationState(formElementAdd, validityConfig);
+  formValidElementAdd.resetValidationState();
 });
 closeButtonAdd.addEventListener('click', ()=>{
   closePopup(editFormAdd);
