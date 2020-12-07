@@ -60,8 +60,13 @@ class FormValidator {
   resetValidationState() {
 
     this._inputsList.forEach((input) => {
+      if (input.value === '') {
+        this._hideError(input);
+        this._setButtonState(this._form.checkValidity());
+      } else {
       this._checkInputValidity(input);
       this._setButtonState(this._form.checkValidity());
+      }
     });
   }
 
@@ -70,6 +75,6 @@ class FormValidator {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-        this._setButtonState(this._form.checkValidity())
+        this._setButtonState(this._form.checkValidity());
   }
 }
