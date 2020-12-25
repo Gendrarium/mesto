@@ -1,14 +1,4 @@
-export {validityConfig, FormValidator};
-
-const validityConfig = {
-  formSelector: 'edit-form__form',
-  inputSelector: 'edit-form__input',
-  submitButtonSelector: 'edit-form__button',
-  inactiveButtonClass: 'edit-form__button_disabled',
-  inputErrorClass: 'edit-form__input_type_error'
-};
-
-class FormValidator {
+export default class FormValidator {
   constructor(config, form) {
     this._config = config;
     this._form = form;

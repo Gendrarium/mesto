@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
   <div class="page">
     <header class="header page__header">
-      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место">
+      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Логотип Место">
     </header>
     <main class="main">
       <section class="profile main__profile">
         <div class="profile__container">
-          <img class="profile__image" src="./images/profile-avatar.jpg" alt="Жак-Ив Кусто">
+          <img class="profile__image" src="<%=require('./images/profile-avatar.jpg')%>" alt="Жак-Ив Кусто">
           <div class="profile__name-and-description">
             <div class="profile__name-container">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -35,10 +34,10 @@
       <div class="edit-form__container">
         <button class="edit-form__close-button" type="button"></button>
         <h2 class="edit-form__title">Редактировать профиль</h2>
-        <form class="edit-form__form" target="_self" name="popup-form" method="get">
-          <input class="edit-form__input edit-form__input_content_name" id="user-name" name="user-name" type="text" minlength="2" maxlength="40" required>
+        <form class="edit-form__form" target="_self" name="form1" method="get">
+          <input class="edit-form__input edit-form__input_content_name" id="user-name" name="name" type="text" minlength="2" maxlength="40" required>
           <span id="user-name-error" class="edit-form__error"></span>
-          <input class="edit-form__input edit-form__input_content_job" id="user-job" name="user-job" type="text" minlength="2" maxlength="200" required>
+          <input class="edit-form__input edit-form__input_content_job" id="user-job" name="job" type="text" minlength="2" maxlength="200" required>
           <span id="user-job-error" class="edit-form__error"></span>
           <button class="edit-form__button" type="submit">Сохранить</button>
         </form>
@@ -48,10 +47,10 @@
     <div class="edit-form__container">
       <button class="edit-form__close-button" type="button"></button>
       <h2 class="edit-form__title">Новое место</h2>
-      <form class="edit-form__form" target="_self" name="popup-form" method="get">
-        <input class="edit-form__input edit-form__input_content_name" id="place-name" name="user-name" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+      <form class="edit-form__form" target="_self" name="form2" method="get">
+        <input class="edit-form__input edit-form__input_content_name" id="place-name" name="name" type="text" placeholder="Название" minlength="2" maxlength="30" required>
         <span id="place-name-error" class="edit-form__error"></span>
-        <input class="edit-form__input edit-form__input_content_link" id="user-link" name="user-link" type="url" placeholder="Ссылка на картинку" required>
+        <input class="edit-form__input edit-form__input_content_link" id="user-link" name="link" type="url" placeholder="Ссылка на картинку" required>
         <span id="user-link-error" class="edit-form__error"></span>
         <button class="edit-form__button" type="submit">Сохранить</button>
       </form>

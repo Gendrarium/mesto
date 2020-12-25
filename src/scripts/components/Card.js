@@ -1,14 +1,8 @@
-export {Card};
-import {openPopup} from './utils.js';
-
-const editFormImg = document.querySelector('.edit-form_button_img');
-const popupImage = editFormImg.querySelector('.edit-form__image');
-const popupCaption = editFormImg.querySelector('.edit-form__caption');
-
-class Card {
-  constructor(data, cardSelector) {
+export default class Card {
+  constructor({data, handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._cardClick = handleCardClick;
     this._selector = cardSelector;
   }
 
@@ -19,9 +13,7 @@ class Card {
 
   _fullSizeImage(){
     this._image.addEventListener('click',()=>{
-      popupImage.src = this._image.src;
-      popupCaption.textContent = this._image.alt;
-      openPopup(editFormImg);
+      this._cardClick(this._image);
     })
   }
 
