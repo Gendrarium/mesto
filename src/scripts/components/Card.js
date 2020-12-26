@@ -1,7 +1,7 @@
 export default class Card {
   constructor({data, handleCardClick}, cardSelector) {
-    this._name = data.name;
-    this._link = data.link;
+    this.name = data.name;
+    this.link = data.link;
     this._cardClick = handleCardClick;
     this._selector = cardSelector;
   }
@@ -13,7 +13,7 @@ export default class Card {
 
   _fullSizeImage(){
     this._image.addEventListener('click',()=>{
-      this._cardClick(this._image);
+      this._cardClick({name: this.name, link: this.link});
     })
   }
 
@@ -35,9 +35,9 @@ export default class Card {
     this._element = this._getTemplate();
     this._image = this._element.querySelector('.card__image');
 
-    this._image.src = this._link;
-    this._image.alt = this._name;
-    this._element.querySelector('.card__title').textContent = this._name;
+    this._image.src = this.link;
+    this._image.alt = this.name;
+    this._element.querySelector('.card__title').textContent = this.name;
 
     this._fullSizeImage();
     this._likeCard();

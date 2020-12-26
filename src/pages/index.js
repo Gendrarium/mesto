@@ -1,10 +1,10 @@
-﻿import '../pages/index.css'
-import Section from './components/Section.js';
-import Card from './components/Card.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import UserInfo from './components/UserInfo.js';
-import FormValidator from './components/FormValidator.js';
+﻿import './index.css';
+import Section from '../scripts/components/Section.js';
+import Card from '../scripts/components/Card.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import UserInfo from '../scripts/components/UserInfo.js';
+import FormValidator from '../scripts/components/FormValidator.js';
 import {
   initialCards,
   validityConfig,
@@ -13,20 +13,24 @@ import {
   nameInput,
   jobInput,
   formElementProfile,
-  formElementAdd} from './utils/const.js';
+  formElementAdd} from '../scripts/utils/const.js';
 
+const imgPopup = new PopupWithImage('.edit-form_button_img');
+imgPopup.setEventListeners();
+
+const createCard = (item) => {
+  const card = new Card({
+    data: item,
+    handleCardClick: () => {
+    imgPopup.open({name: card.name, link: card.link});
+    }}, '.template-cards');
+    return card;
+}
 
 const addCard = new Section({
   items: initialCards,
   renderer: (item) => {
-      const card = new Card({
-        data: item,
-        handleCardClick: () => {
-          const imgPopup = new PopupWithImage('.edit-form_button_img');
-          imgPopup.open(card._image);
-          imgPopup.setEventListeners();
-        }}, '.template-cards');
-      addCard.appendItem(card.generateCard());
+    addCard.appendItem(createCard(item).generateCard());
 }
 }, '.grid-cards')
 addCard.renderItems();
@@ -60,14 +64,7 @@ editButton.addEventListener('click', () =>{
 const addPlace = new PopupWithForm('.edit-form_button_add',
 (formData) => {
 
-  const card =new Card({data: formData,
-    handleCardClick: () => {
-      const imgPopup = new PopupWithImage('.edit-form_button_img');
-      imgPopup.open(card._image);
-      imgPopup.setEventListeners();
-    }
-  }, '.template-cards')
-  addCard.prependItem(card.generateCard());
+  addCard.prependItem(createCard(formData).generateCard());
   addPlace.close();
 });
 
