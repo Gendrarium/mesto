@@ -10,8 +10,8 @@ export {
 
 const initialCards = [
   {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      name: 'Армавир',
+      link: 'https://sun9-48.userapi.com/impg/bdrFY0uEccsYnlpJyNcvPsfkZ_cgolO4BbWrgg/nS6r86TRyaY.jpg?size=1800x1200&quality=96&proxy=1&sign=1a4a828215ea0eb62aa46e9e57b8f9dc&type=album'
   },
   {
       name: 'Челябинская область',
