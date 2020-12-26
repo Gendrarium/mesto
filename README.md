@@ -8,7 +8,7 @@
 
 **Ссылка на проект**
 
-* [Нажмите сюда](https://gendrarium.github.io/mesto/index.html)
+* [Нажмите сюда](https://gendrarium.github.io/mesto/)
 
 **Использованные технологии**
 
