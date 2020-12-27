@@ -21,8 +21,8 @@ imgPopup.setEventListeners();
 const createCard = (item) => {
   const card = new Card({
     data: item,
-    handleCardClick: () => {
-    imgPopup.open({name: card.name, link: card.link});
+    handleCardClick: ({name, link}) => {
+    imgPopup.open({name, link});
     }}, '.template-cards');
     return card;
 }
