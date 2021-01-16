@@ -1,4 +1,4 @@
-﻿import './index.css';
+﻿import Api from '../scripts/components/Api.js';
 import Section from '../scripts/components/Section.js';
 import Card from '../scripts/components/Card.js';
 import PopupWithImage from '../scripts/components/PopupWithImage.js';
@@ -75,3 +75,7 @@ addButton.addEventListener('click', () =>{
   formElementAdd.reset();
   formValidElementAdd.resetValidationState();
 })
+
+const assad = new Api('https://mesto.nomoreparties.co', 'e17fa530-896d-4705-bcb2-e2630586390c');
+
+assad.getUserData();

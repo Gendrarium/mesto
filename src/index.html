@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
+<link type="text/css" rel="stylesheet" href="pages/index.css">
 </head>
 <body>
   <div class="page">
     <header class="header page__header">
-      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Логотип Место">
+      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место">
     </header>
     <main class="main">
       <section class="profile main__profile">
         <div class="profile__container">
-          <img class="profile__image" src="<%=require('./images/profile-avatar.jpg')%>" alt="Жак-Ив Кусто">
+          <img class="profile__image" src="./images/profile-avatar.jpg" alt="Жак-Ив Кусто">
           <div class="profile__name-and-description">
             <div class="profile__name-container">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -74,9 +75,13 @@
       <button class="card__del" type="button"></button>
       <div class="card__bottom-container">
         <h2 class="card__title"></h2>
-        <button class="card__like" type="button"></button>
+        <div class="card__like-container">
+          <button class="card__like" type="button"></button>
+          <p class="card__like-num">0</p>
+        </div>
       </div>
     </article>
   </template>
 </body>
+<script type="module" src="./pages/index.js"></script>
 </html>
