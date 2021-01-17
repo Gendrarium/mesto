@@ -1,9 +1,19 @@
 export default class Card {
-  constructor({data, handleCardClick}, cardSelector) {
+  constructor({data, userId, handleCardClick, handleLikeClick, handleDeleteClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._cardId = data._id;
+    this._likes = data.likes;
+    this._userId = userId;
     this._cardClick = handleCardClick;
+    this._likeClick = handleLikeClick;
+    this._deleteClick = handleDeleteClick;
     this._selector = cardSelector;
+  }
+  _isLiked() {
+    this._likes.some((item) => {
+      item._id = this._userId;
+    })
   }
 
   _getTemplate() {
@@ -20,14 +30,14 @@ export default class Card {
   _likeCard() {
     const likeButton = this._element.querySelector('.card__like');
     likeButton.addEventListener('click', () => {
-     likeButton.classList.toggle('card__like_fill');
+      this._likeClick(likeButton, this._cardId, this._isLiked);
     });
   }
 
-  _delCard() {
+  _delCard(id) {
     const delButton = this._element.querySelector('.card__del');
     delButton.addEventListener('click', () => {
-      delButton.closest('.card').remove();
+      this._deleteClick(this._cardId);
     });
   }
 
@@ -44,6 +54,8 @@ export default class Card {
     this._delCard();
 
     return this._element;
+  }
+  setLikes(data) {
   }
 }
 

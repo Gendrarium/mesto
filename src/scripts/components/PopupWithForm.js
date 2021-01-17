@@ -4,7 +4,6 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleSumbitForm) {
     super(popupSelector);
     this._formSumbit = handleSumbitForm;
-    this._element = document.querySelector(popupSelector);
     this._handleSumbitForm = this._handleSumbitForm.bind(this);
   }
   _getInputValues() {

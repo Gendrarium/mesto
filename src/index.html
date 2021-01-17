@@ -14,13 +14,16 @@
     <main class="main">
       <section class="profile main__profile">
         <div class="profile__container">
-          <img class="profile__image" src="./images/profile-avatar.jpg" alt="Жак-Ив Кусто">
+          <button class="profile__edit-image">
+            <img class="profile__image" src="./images/profile-avatar.jpg" alt="Жак-Ив Кусто">
+
+          </button>
           <div class="profile__name-and-description">
             <div class="profile__name-container">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <h1 class="profile__title"></h1>
               <button class="profile__edit-button" type="button"></button>
             </div>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <p class="profile__subtitle"></p>
           </div>
         </div>
         <button class="profile__add-button" type="button"></button>
@@ -67,6 +70,26 @@
       </div>
     </div>
   </div>
+  <div class="edit-form page__edit-form edit-form_button_del">
+    <div class="edit-form__container">
+      <button class="edit-form__close-button" type="button"></button>
+      <h2 class="edit-form__title edit-form__title_delete-card">Вы уверены?</h2>
+      <form class="edit-form__form" target="_self" name="form3" method="get">
+        <button class="edit-form__button" type="submit">Да</button>
+      </form>
+    </div>
+   </div>
+   <div class="edit-form page__edit-form edit-form_button_avatar-edit">
+    <div class="edit-form__container">
+      <button class="edit-form__close-button" type="button"></button>
+      <h2 class="edit-form__title">Обновить аватар</h2>
+      <form class="edit-form__form" target="_self" name="form4" method="get">
+        <input class="edit-form__input edit-form__input_content_name" id="avatar-url" name="avatar" type="url" placeholder="Ссылка на аватар" required>
+        <span id="avatar-url-error" class="edit-form__error"></span>
+        <button class="edit-form__button" type="submit">Сохранить</button>
+      </form>
+    </div>
+   </div>
   <template class="template-cards">
     <article class="card">
       <div class="card__image-container">

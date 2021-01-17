@@ -1,13 +1,13 @@
 export default class Api {
-  constructor(baseUrl, key) {
-    this._baseUrl = baseUrl;
+  constructor({url, key}) {
+    this._url = url;
     this._key = key;
   }
   getUserData() {
-    fetch(`${this._baseUrl}/v1/cohort-19/users/me`, {
+    return fetch(`${this._url}/v1/cohort-19/users/me`, {
       headers: {
         method: 'GET',
-        authorization: `${this._key}`
+        authorization: this._key
       }
     })
       .then((res) => {
@@ -18,16 +18,16 @@ export default class Api {
       });
 
   }
-  patchRefreshUserInfo() {
-    fetch(`${this._baseUrl}/v1/cohort-19/cards`, {
+  editUserInfo(data) {
+    return fetch(`${this._url}/v1/cohort-19/cards`, {
       headers: {
         method: 'PATCH',
-        authorization: `${this._key}`,
+        authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: 'Ты забыл вставить сюда код',
-        about: 'и сюда'
+        name: data.name,
+        about: data.about
       })
     })
       .then((res) => {
@@ -37,14 +37,29 @@ export default class Api {
         return Promise.reject(`Что-то пошло не так: ${res.status}`);
       });
   }
-  patchRefreshAvatar() {
-
+  editAvatar(data) {
+    return fetch(`${this._url}/v1/cohort-19/users/me/avatar`, {
+      headers: {
+        method: 'PATCH',
+        authorization: this._key,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar: data.avatar
+      })
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+      });
   }
   getInitialCards() {
-    fetch(`${this._baseUrl}/v1/cohort-19/cards`, {
+    return fetch(`${this._url}/v1/cohort-19/cards`, {
       headers: {
         method: 'GET',
-        authorization: `${this._key}`
+        authorization: this._key
       }
     })
       .then((res) => {
@@ -54,16 +69,16 @@ export default class Api {
         return Promise.reject(`Что-то пошло не так: ${res.status}`);
       });
   }
-  postAddCard() {
-    fetch(`${this._baseUrl}/v1/cohort-19/cards`, {
+  addCard(data) {
+    return fetch(`${this._url}/v1/cohort-19/cards`, {
       headers: {
         method: 'POST',
-        authorization: `${this._key}`,
+        authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: 'Ты забыл вставить сюда код',
-        link: 'и сюда'
+        name: data.name,
+        link: data.link
       })
     })
       .then((res) => {
@@ -73,13 +88,46 @@ export default class Api {
         return Promise.reject(`Что-то пошло не так: ${res.status}`);
       });
   }
-  deleteCard() {
-
+  deleteCard(id) {
+    return fetch(`${this._url}/v1/cohort-19/cards/${id}`, {
+      headers: {
+        method: 'DELETE',
+        authorization: this._key
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+      });
   }
-  putLikeCard() {
-
+  likeCard(id) {
+    return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+      headers: {
+        method: 'PUT',
+        authorization: this._key
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+      });
   }
-  dislikeCard() {
-
+  dislikeCard(id) {
+    return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+      headers: {
+        method: 'DELETE',
+        authorization: this._key
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+      });
   }
 }

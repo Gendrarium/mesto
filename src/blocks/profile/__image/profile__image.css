@@ -2,11 +2,8 @@
   width: 120px;
   height: 120px;
   border-radius: 60px;
-  margin-right: 30px;
 }
 
-@media screen and (max-width: 599px) {
-  .profile__image {
-    margin-right: 0;
+.profile__image:hover {
+  opacity: .2;
   }
-}
