@@ -5,8 +5,8 @@ export default class Api {
   }
   getUserData() {
     return fetch(`${this._url}/v1/cohort-19/users/me`, {
+      method: 'GET',
       headers: {
-        method: 'GET',
         authorization: this._key
       }
     })
@@ -19,15 +19,15 @@ export default class Api {
 
   }
   editUserInfo(data) {
-    return fetch(`${this._url}/v1/cohort-19/cards`, {
+    return fetch(`${this._url}/v1/cohort-19/users/me`, {
+      method: 'PATCH',
       headers: {
-        method: 'PATCH',
         authorization: this._key,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name: data.name,
-        about: data.about
+        about: data.job
       })
     })
       .then((res) => {
@@ -39,8 +39,8 @@ export default class Api {
   }
   editAvatar(data) {
     return fetch(`${this._url}/v1/cohort-19/users/me/avatar`, {
+      method: 'PATCH',
       headers: {
-        method: 'PATCH',
         authorization: this._key,
         'Content-Type': 'application/json'
       },
@@ -57,8 +57,8 @@ export default class Api {
   }
   getInitialCards() {
     return fetch(`${this._url}/v1/cohort-19/cards`, {
+      method: 'GET',
       headers: {
-        method: 'GET',
         authorization: this._key
       }
     })
@@ -71,8 +71,8 @@ export default class Api {
   }
   addCard(data) {
     return fetch(`${this._url}/v1/cohort-19/cards`, {
+      method: 'POST',
       headers: {
-        method: 'POST',
         authorization: this._key,
         'Content-Type': 'application/json'
       },
@@ -90,8 +90,8 @@ export default class Api {
   }
   deleteCard(id) {
     return fetch(`${this._url}/v1/cohort-19/cards/${id}`, {
+      method: 'DELETE',
       headers: {
-        method: 'DELETE',
         authorization: this._key
       }
     })
@@ -104,8 +104,8 @@ export default class Api {
   }
   likeCard(id) {
     return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+      method: 'PUT',
       headers: {
-        method: 'PUT',
         authorization: this._key
       }
     })
@@ -118,8 +118,8 @@ export default class Api {
   }
   dislikeCard(id) {
     return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+      method: 'DELETE',
       headers: {
-        method: 'DELETE',
         authorization: this._key
       }
     })

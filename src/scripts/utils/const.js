@@ -2,10 +2,12 @@ export {
   validityConfig,
   editButton,
   addButton,
+  avatarEditButton,
   nameInput,
   jobInput,
   formElementProfile,
-  formElementAdd}
+  formElementAdd,
+  formElementEditAvatar}
 
 const validityConfig = {
   formSelector: 'edit-form__form',
@@ -17,7 +19,9 @@ const validityConfig = {
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
+const avatarEditButton = document.querySelector('.profile__edit-image')
 const nameInput = document.querySelector('.edit-form__input_content_name');
 const jobInput = document.querySelector('.edit-form__input_content_job');
 const formElementProfile = document.forms.form1;
 const formElementAdd = document.forms.form2;
+const formElementEditAvatar = document.forms.form4;

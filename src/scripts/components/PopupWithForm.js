@@ -4,6 +4,7 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleSumbitForm) {
     super(popupSelector);
     this._formSumbit = handleSumbitForm;
+    this._confirmButton = this._element.querySelector('.edit-form__button');
     this._handleSumbitForm = this._handleSumbitForm.bind(this);
   }
   _getInputValues() {
@@ -17,6 +18,10 @@ export default class PopupWithForm extends Popup {
 
     return this._formValues;
   }
+  editButtonCaption(caption) {
+    this._confirmButton.textContent = caption;
+  }
+
   _handleSumbitForm(evt) {
     evt.preventDefault();
 
