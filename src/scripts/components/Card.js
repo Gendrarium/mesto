@@ -47,8 +47,7 @@ export default class Card {
   }
 
   _delCard() {
-    const delButton = this._element.querySelector('.card__del');
-    delButton.addEventListener('click', () => {
+    this._delButton.addEventListener('click', () => {
       this._deleteClick(this._cardId);
     });
   }
@@ -66,6 +65,7 @@ export default class Card {
     this._image = this._element.querySelector('.card__image');
     this._likesNum = this._element.querySelector('.card__like-num');
     this._likeButton = this._element.querySelector('.card__like');
+    this._delButton = this._element.querySelector('.card__del');
 
     this._image.src = this._link;
     this._image.alt = this._name;
