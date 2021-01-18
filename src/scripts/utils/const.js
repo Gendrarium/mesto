@@ -2,6 +2,7 @@ export {
   validityConfig,
   editButton,
   addButton,
+  avatar,
   avatarEditButton,
   nameInput,
   jobInput,
@@ -20,6 +21,7 @@ const validityConfig = {
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const avatarEditButton = document.querySelector('.profile__edit-image')
+const avatar = document.querySelector('.profile__image')
 const nameInput = document.querySelector('.edit-form__input_content_name');
 const jobInput = document.querySelector('.edit-form__input_content_job');
 const formElementProfile = document.forms.form1;

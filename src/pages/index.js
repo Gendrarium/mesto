@@ -1,4 +1,5 @@
-﻿import Api from '../scripts/components/Api.js';
+﻿import './index.css';
+import Api from '../scripts/components/Api.js';
 import Section from '../scripts/components/Section.js';
 import Card from '../scripts/components/Card.js';
 import PopupWithImage from '../scripts/components/PopupWithImage.js';
@@ -11,6 +12,7 @@ import {
   editButton,
   addButton,
   avatarEditButton,
+  avatar,
   nameInput,
   jobInput,
   formElementProfile,
@@ -42,6 +44,7 @@ Promise.all([
     });
     userInfo.saveUserId(values[0]._id);
     userInfo.setUserAvatar(values[0].avatar);
+    avatar.alt = userInfo.getUserInfo().name;
     addCard.renderItems(values[1]);
   })
   .catch((err) => {
@@ -65,7 +68,7 @@ const createCard = (item) => {
       } else {
         api.likeCard(id)
         .then(res => {
-          card.setLikes(res);
+          card.setLikes({likes: res.likes});
         })
         .catch(err => console.log(err));
       }
@@ -159,6 +162,7 @@ const editAvatar = new PopupWithForm('.edit-form_button_avatar-edit',
   api.editAvatar(formData)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
+      avatar.alt = userInfo.getUserInfo().name;
       editAvatar.close();
     })
     .catch((err) => {
