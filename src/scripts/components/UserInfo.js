@@ -23,5 +23,6 @@ export default class UserInfo {
   }
   setUserAvatar(url) {
     this._profileUserAvatar.src = url;
+    this._profileUserAvatar.alt = this._profileUserName.textContent;
   }
 }

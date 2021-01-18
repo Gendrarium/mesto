@@ -12,7 +12,6 @@ import {
   editButton,
   addButton,
   avatarEditButton,
-  avatar,
   nameInput,
   jobInput,
   formElementProfile,
@@ -20,7 +19,7 @@ import {
   formElementEditAvatar} from '../scripts/utils/const.js';
 
 const api = new Api({
-  url: 'https://mesto.nomoreparties.co',
+  url: 'https://mesto.nomoreparties.co/v1/cohort-19',
   key: 'e17fa530-896d-4705-bcb2-e2630586390c'});
 
 const userInfo = new UserInfo({selectorUserName: '.profile__title', selectorUserJob: '.profile__subtitle', selectorUserAvatar: '.profile__image'});
@@ -37,15 +36,14 @@ Promise.all([
   api.getUserData(),
   api.getInitialCards()
 ])
-  .then((values) => {
+  .then(([userData, cards]) => {
     userInfo.setUserInfo({
-      name: values[0].name,
-      job: values[0].about
+      name: userData.name,
+      job: userData.about
     });
-    userInfo.saveUserId(values[0]._id);
-    userInfo.setUserAvatar(values[0].avatar);
-    avatar.alt = userInfo.getUserInfo().name;
-    addCard.renderItems(values[1]);
+    userInfo.saveUserId(userData._id);
+    userInfo.setUserAvatar(userData.avatar);
+    addCard.renderItems(cards);
   })
   .catch((err) => {
     console.log(err);
@@ -117,7 +115,6 @@ const editProfile = new PopupWithForm('.edit-form_button_redact',
     .finally(() => {
       editProfile.editButtonCaption('Сохранить')
     })
-  editProfile.close();
 });
 
 editProfile.setEventListeners();
@@ -145,7 +142,6 @@ const addPlace = new PopupWithForm('.edit-form_button_add',
     .finally(() => {
       addPlace.editButtonCaption('Создать')
     })
-  addPlace.close();
 });
 
 addPlace.setEventListeners();
@@ -162,7 +158,6 @@ const editAvatar = new PopupWithForm('.edit-form_button_avatar-edit',
   api.editAvatar(formData)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
-      avatar.alt = userInfo.getUserInfo().name;
       editAvatar.close();
     })
     .catch((err) => {
@@ -171,7 +166,6 @@ const editAvatar = new PopupWithForm('.edit-form_button_avatar-edit',
     .finally(() => {
       editAvatar.editButtonCaption('Сохранить')
     })
-  editAvatar.close();
 });
 
 editAvatar.setEventListeners();

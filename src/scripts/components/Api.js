@@ -4,22 +4,19 @@ export default class Api {
     this._key = key;
   }
   getUserData() {
-    return fetch(`${this._url}/v1/cohort-19/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
         authorization: this._key
       }
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
 
   }
   editUserInfo(data) {
-    return fetch(`${this._url}/v1/cohort-19/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: this._key,
@@ -31,14 +28,11 @@ export default class Api {
       })
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   editAvatar(data) {
-    return fetch(`${this._url}/v1/cohort-19/users/me/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
         authorization: this._key,
@@ -49,28 +43,22 @@ export default class Api {
       })
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   getInitialCards() {
-    return fetch(`${this._url}/v1/cohort-19/cards`, {
+    return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: {
         authorization: this._key
       }
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   addCard(data) {
-    return fetch(`${this._url}/v1/cohort-19/cards`, {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
         authorization: this._key,
@@ -82,52 +70,46 @@ export default class Api {
       })
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   deleteCard(id) {
-    return fetch(`${this._url}/v1/cohort-19/cards/${id}`, {
+    return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
       headers: {
         authorization: this._key
       }
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   likeCard(id) {
-    return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'PUT',
       headers: {
         authorization: this._key
       }
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
   }
   dislikeCard(id) {
-    return fetch(`${this._url}/v1/cohort-19/cards/likes/${id}`, {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: {
         authorization: this._key
       }
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Что-то пошло не так: ${res.status}`);
+        return this._getResponseData(res);
       });
+  }
+  _getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
   }
 }
