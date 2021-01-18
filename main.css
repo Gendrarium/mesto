@@ -10,7 +10,8 @@
 .main__grid-cards{margin:50px auto 0}@media screen and (max-width:599px){.main__grid-cards{margin-top:36px}}
 .profile{max-width:882px;display:flex;justify-content:space-between;align-items:center}@media screen and (max-width:1279px){.profile{max-width:75vw}}@media screen and (max-width:767px){.profile{max-width:70vw;flex-direction:column}}@media screen and (max-width:599px){.profile{max-width:282px}}
 .profile__container{display:flex}@media screen and (max-width:767px){.profile__container{flex-direction:column;align-items:center}}
-.profile__image{width:120px;height:120px;border-radius:60px;margin-right:30px}@media screen and (max-width:599px){.profile__image{margin-right:0}}
+.profile__edit-image{background-color:transparent;border:0;padding:0;margin-right:30px;cursor:pointer;outline:none;position:relative}.profile__edit-image:hover:after{content:"";display:block;position:absolute;top:0;left:0;background:url(images/profile-edit-button.6c7bf05444b9793fdf6e.svg) 50%/26px 26px no-repeat rgba(0,0,0,.8);width:100%;height:100%}@media screen and (max-width:599px){.profile__edit-image{margin-right:0}}
+.profile__image{width:120px;height:120px;border-radius:60px}.profile__image:hover{opacity:.2}
 .profile__name-container{display:flex;align-items:center}
 .profile__title{margin:18px 0 3px;font-weight:500;font-size:42px;line-height:56px;max-width:400px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}@media screen and (max-width:1279px){.profile__title{max-width:350px}}@media screen and (max-width:767px){.profile__title{margin-bottom:0;margin-left:4px;max-width:60vw;font-size:27px;line-height:56px;text-align:center}}@media screen and (max-width:599px){.profile__title{max-width:250px}}
 .profile__edit-button{background:url(images/profile-edit-button.6c7bf05444b9793fdf6e.svg) 50%/10px 10px no-repeat #000;margin:20px 0 0 19px;width:24px;height:24px;border:1px solid #fff;box-sizing:border-box;display:flex;justify-content:center;align-items:center;cursor:pointer;opacity:1}.profile__edit-button:focus{outline:none}.profile__edit-button:hover{opacity:.6;transition:opacity .3s linear}@media screen and (max-width:1023px){.profile__edit-button{margin-left:0}}@media screen and (max-width:767px){.profile__edit-button{width:18px;height:18px;background-size:7.5px 7.5px;margin-top:18px;margin-left:7px}}
@@ -23,6 +24,7 @@
 .edit-form__container_img-popup{max-width:75vw;background-color:transparent}
 .edit-form__close-button{width:40px;height:40px;background-color:transparent;background-image:url(images/profile-plus-and-edit-form-x.bed8c136e13907f5eefb.svg);background-position:50%;background-size:cover;border:none;position:absolute;top:-45px;right:-45px;opacity:1;cursor:pointer;transform:rotate(-45deg)}.edit-form__close-button:focus{outline:none}.edit-form__close-button:hover{opacity:.6;transition:opacity .3s linear}@media screen and (max-width:599px){.edit-form__close-button{top:-35px;right:-10px;width:26px;height:26px}}
 .edit-form__title{margin:34px 0 54px 36px;font-weight:900;font-family:Inter,Arial,sans-serif;color:#000;font-size:24px;line-height:29px}@media screen and (max-width:599px){.edit-form__title{margin-left:22px;font-size:18px;line-height:22px}}
+.edit-form__title_delete-card{margin-bottom:18px}
 .edit-form__form{display:flex;flex-direction:column;align-items:center}
 .edit-form__input{padding:0;font-family:Inter,Arial,sans-serif;font-weight:400;width:358px;margin:0 auto;border:none;border-bottom:1px solid rgba(0,0,0,.2)}.edit-form__input:focus{outline:none}.edit-form__input:last-of-type{margin-top:10px}@media screen and (max-width:599px){.edit-form__input{width:238px}}
 .edit-form__input_type_error{border-bottom:1px solid red}
@@ -32,14 +34,17 @@
 .edit-form__figure{margin:0}
 .edit-form__image{max-width:75vw;max-height:75vh}
 .edit-form__caption{font-size:12px;line-height:15px;margin:10px 0 0}
-.card{background-color:#fff;border-radius:10px;color:#000;max-width:282px;min-height:362px;box-sizing:border-box;padding-bottom:25px;position:relative}
+.card{background-color:#fff;border-radius:10px;color:#000;max-width:282px;min-height:362px;box-sizing:border-box;padding-bottom:19px;position:relative}
 .card__image-container{width:282px;height:282px}
 .card__image{width:282px;height:282px;border-radius:10px 10px 0 0;cursor:pointer}
 .card__del{background:url(images/grid-cards-del.e3c42771bff3aaa52f76.svg) 50%/cover no-repeat transparent;border:none;width:18px;height:20px;position:absolute;top:18px;right:15px;opacity:1;cursor:pointer}.card__del:focus{outline:none}.card__del:hover{opacity:.8;transition:opacity .4s linear}
+.card__del_display-none{display:none}
 .card__bottom-container{display:flex;justify-content:space-between;align-items:center}
-.card__title{margin:25px 0 0 21px;max-width:190px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
-.card__like{background:url(images/grid-cards-like.df0c965524717a3fd8e9.svg) 50%/cover no-repeat transparent;border:none;width:21px;height:19px;margin:32px 30px 0 0;opacity:1;cursor:pointer}.card__like:focus{outline:none}.card__like:hover{opacity:.8;transition:opacity .4s linear}
+.card__title{margin:18px 0 0 21px;max-width:190px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.card__like-container{display:flex;flex-direction:column}
+.card__like{background:url(images/grid-cards-like.df0c965524717a3fd8e9.svg) 50%/cover no-repeat transparent;border:none;width:21px;height:19px;margin:21px 21px 5px 0;opacity:1;cursor:pointer}.card__like:focus{outline:none}.card__like:hover{opacity:.8;transition:opacity .4s linear}
 .card__like_fill{background:url(images/grid-cards-like-fill.a7ffe37dcb927ba0c46c.svg) 50%/cover no-repeat transparent}
+.card__like-num{margin:0 21px 0 0;font-family:Inter;font-style:normal;font-weight:400;font-size:13px;line-height:16px;text-align:center;color:#000}
 .footer{padding:66px 0 55px;max-width:882px}@media screen and (max-width:1023px){.footer{max-width:75vw}}@media screen and (max-width:599px){.footer{max-width:282px;padding:49px 0 32px}}
 .footer__copyright{margin:0;color:#545454;font-size:18px;line-height:22px}@media screen and (max-width:599px){.footer__copyright{font-size:14px;line-height:17px}}
 
