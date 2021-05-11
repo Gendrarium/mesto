@@ -10,7 +10,6 @@
     "fix": "stylelint \"src/**/*.css\" --fix && eslint --ext .js src/ --fix",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
-
   },
   "repository": {
     "type": "git",
